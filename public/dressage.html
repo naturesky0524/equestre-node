@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title data-key="VERSION1">Live-Timing Equestre Version 2.2 - Dressage</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.png">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <!--<script src="js/jquery.min.js"></script>-->
+</head>
+
+<body>
+  <div id="current_list_back" style="display: none;">
+    <div class="current_list_back"></div>
+  </div>
+  <div class="body-gap"></div>
+  <div class="container-dressage">
+    <header>
+      <div class="logo" data-key="UNOFFICIAL">ALL RESULTS ARE UNOFFICIAL</div>
+      <div class="dropdown right-align">
+        <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+          English
+        </button> -->
+        <select id="lang" class="form-control" onchange="lang=this.value; localizeAll(this.value)">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+        </select>
+      </div>
+    </header>
+    <main>
+      <div id="event_list" class="page">
+        <div class="subboard">
+          <div class="d-flex justify-content-between">
+            <div class="subtitle">
+              <h3 data-key="LIVE_EVENTS">Live Events</h3>
+            </div>
+            <div>
+              <span data-key="CONNECTED_COUNT">Connected Count: </span>
+              <span id="connected-count1">1</span>
+            </div>
+          </div>
+          <table class="table table-scoreboard eventboard">
+            <thead>
+              <tr class="d-flex">
+                <th class="col-3" data-key="EVENT">Event</th>
+                <th class="col-5" data-key="COMPETITION">Competition</th>
+                <th class="col-2" data-key="START_DATE">Start Date</th>
+                <th class="col-2" data-key="END_DATE">End Date</th>
+              </tr>
+            </thead>
+            <tbody id="live-events">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="event_view" class="page">
+        <div class="px-3 text-right">
+          <span data-key="CONNECTED_COUNT"></span>
+          <span id="connected-count2">1</span>
+        </div>
+
+        <nav class="navbar navbar-expand-sm navbar-dark navbar-dark">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <div id="nav-live" class="nav-link active" data-key="LIVE">Live</div>
+            </li>
+            <li class="nav-item">
+              <div id="nav-startlist" class="nav-link" data-key="START_LIST">Start List</div>
+            </li>
+            <li class="nav-item">
+              <div id="nav-ranking" class="nav-link" data-key="RANKING">Ranking</div>
+            </li>
+            <li class="nav-item">
+              <div id="nav-ccranking" class="nav-link hidden" data-key="CCRANKING">CC Ranking</div>
+            </li>
+          </ul>
+          <div class="dropdown pagelink">
+            <button id="goto-events" type="button" class="btn btn-secondary" data-key="EVENT_LIST">Event List</button>
+          </div>
+        </nav>
+
+        <div class="title">
+          <div style="position: absolute; margin-left: 50%; left:0; right:0;"><img src="images/dressage.png"> </div>
+          <div class="clear">
+            <h2 id="meeting-title">&nbsp</h2>
+          </div>
+          <div class="right-align">
+            <h2 id="event-date">&nbsp</h2>
+          </div>
+          <div class="clear">
+            <h4 id="event-title">&nbsp</h4>
+          </div>
+        </div>
+
+        <div class="subboard" style="margin-top: -1rem; margin-bottom: -1rem">
+          <table class="table table-scoreboard" style="width: 100%">
+            <tbody>
+              <tr>
+                <td data-key="CATEGORY" style="width: 200px; text-align: right;">Category:</td>
+                <td id="category"></td>
+                <td data-key="SCHEDULER_NUMBER" style="width: 200px;; text-align: right;">Scheduler Number:</td>
+                <td id="scheduler-number"></td>
+              </tr>  
+              <tr>
+                <td data-key="HEIGHT" style="text-align: right;">Height:</td>
+                <td id="height"></td>
+                <td data-key="DATE" style="text-align: right;">Date:</td>
+                <td id="event-date1"></td>
+              </tr>  
+              <tr>
+                <td data-key="INITIAL_LIST_AMOUNT" style="text-align: right;">Initial list amount:</td>
+                <td id="init-award-list-amount"></td>
+                <td data-key="RUN_START" style="text-align: right;">Time:</td>
+                <td id="event-time"></td>
+              </tr>  
+              <tr>
+                <td data-key="NOTES" style="text-align: right;">Notes:</td>
+                <td colspan="3" id="notes"></td>
+              </tr>  
+            </tbody>
+          </table>
+        </div>
+
+        <div class="progress-wrapper px-3">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 0">0 / 0</div>
+          </div>
+          <div class="mt-2 hidden">
+            <span id="game" data-key="ETA">Estimated Time of Completion: </span>
+            <span id="eta"></span>
+          </div>
+        </div>
+
+        <div class="subboard" id="judges_list">
+          <div class="subtitle">
+            <h3 data-key="JUDGES">Judges</h3>
+          </div>
+          <table class="table table-scoreboard">
+            <thead id="judges_header">
+              <tr class="">
+                <th colspan="2" class="col-rank text-center px-02 col-num-lg" data-key="NUMBER"><span>Nr.</span></th>
+                <th class=""><span><span data-key="NAME">Name</span></span></th>
+                <th class="col-nation px-0"><span data-key="NATION">Nation</span></th>
+                <th class="col-point px-02 text-center font-13" style="width: 140px;"><span><span data-key="CODE">Code</span></span></th>
+              </tr>
+            </thead>
+            <tbody id="judges_body">
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subboard" id="nextriders_list">
+          <div class="subtitle">
+            <h3 data-key="START_LIST">Start List</h3>
+          </div>
+          <table class="table table-scoreboard">
+            <thead id="nextriders_header">
+            </thead>
+            <tbody id="nextriders_body">
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subboard" id="current_list">
+          <div class="d-flex justify-content-between">
+            <div class="subtitle highlight">
+              <h3 data-key="CURRENT">Current</h3>
+            </div>
+            <!--<div class="subtitle time-allowed d-flex pr-0">
+              <h3 class="px-2"><span id="allowed_time_label" data-key="TIME_ALLOWED">Time Allowed</span>:</h3><span class="static-splitter"></span>
+              <h3 class="allowed-time-slot d-flex m-0 align-items-center">
+                <span id="allowed_time_1" class="color-pomegrant w-50 text-center">-</span>
+                <span id="allowed_time_splitter" class="static-splitter"></span>
+                <span id="allowed_time_2" class="color-pomegrant w-50 text-center">-</span>
+              </h3>
+            </div>-->  
+          </div>
+          <table class="table table-scoreboard highlight">
+            <thead id="current_header">
+            </thead>
+            <tbody id="current_body" class="font-weight-bold">
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subboard" id="finished_list">
+          <div class="subtitle">
+            <h3 data-key="AT_FINISH">At Finish</h3>
+          </div>
+          <table class="table table-scoreboard">
+            <thead id="finish_header">
+            </thead>
+            <tbody id="finish_body">
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subboard" id="ranking_list">
+          <div class="d-flex justify-content-between" id="ranking_badge">
+            <div class="subtitle ranking-badge">
+              <h3><span data-key="RANKING">Rankings</span><span id="ranking_count" class="color-pomegrant ml-2"></span></h3>
+            </div>
+            <div class="subtitle gameinfo-badge">
+              <h3 class="d-flex justify-content-between">
+                <div class="row w-100">
+                  <div class="col-3">
+                    <span data-key="REGISTERED">Registered</span>
+                    <span id="registered_count" class="color-pomegrant ml-2"></span>
+                  </div>
+                  <div class="col-3">
+                    <span data-key="STARTED">Started</span>
+                    <span id="started_count" class="color-pomegrant ml-2"></span>
+                  </div>
+                  <div class="col-3">
+                    <span data-key="CLEAR_ROUND">Clear Round</span>
+                    <span id="cleared_count" class="color-pomegrant ml-2"></span>
+                  </div>
+                  <div class="col-3">
+                    <span data-key="COMING_UP">Coming up</span>
+                    <span id="comingup_count" class="color-pomegrant ml-2"></span>
+                  </div>
+                </div>
+              </h3>
+            </div>
+          </div>
+          <table class="table table-scoreboard">
+            <thead id="ranking_header"></thead>
+            <tbody id="ranking_body"></tbody>
+          </table>
+        </div>
+
+        <div class="subboard" id="start_list">
+          <table class="table table-scoreboard">
+            <thead id="startlist_header">
+            </thead>
+            <tbody id="startlist_body">
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subboard hidden" id="ccranking_list">
+          <table class="table table-scoreboard">
+            <thead id="ccranking_header">
+            </thead>
+            <tbody id="ccranking_body">
+            </tbody>
+          </table>
+        </div>
+
+        <div class="subboard hidden" id="seriesranking_list">
+          <table class="table table-scoreboard">
+            <thead id="seriesranking1_header">
+            </thead>
+            <tbody id="seriesranking1_body">
+            </tbody>
+          </table>
+          <table class="table table-scoreboard">
+            <thead id="seriesranking2_header">
+            </thead>
+            <tbody id="seriesranking2_body">
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="errors">
+        <div id="error_noevent" class="alert alert-danger" style="display: none;" data-key="NO_RUNNING_EVENT">There is no running event.</div>
+        <div id="error_finishevent" class="alert alert-danger" style="display: none;" data-key="EVENT_FINISHED">Event is finished.</div>
+      </div>
+    </main>
+    <footer>© 2015-2024 <a class="weratv" href="https://www.weratv.ch/">www.weratv.ch</a>, CH-3176 Neuenegg. All Rights Reserved.
+  </div>
+  <div class="body-gap-dressage"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/localization.js"></script>
+  <script src="/main_dressage.js"></script>
+</body>
+
+</html>

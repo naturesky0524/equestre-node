@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title data-key="VERSION1">Live-Timing Equestre Version 2.2</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <!--<script src="js/jquery.min.js"></script>-->
+</head>
+
+<body>
+  <div class="body-gap"></div>
+  <div class="container">
+    <header>
+      <div class="logo" data-key="UNOFFICIAL">ALL RESULTS ARE UNOFFICIAL</div>
+      <div class="dropdown right-align">
+        <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+          English
+        </button> -->
+        <select id="lang" class="form-control" onchange="lang=this.value; localizeAll(this.value)">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+        </select>
+      </div>
+    </header>
+    <main class="main-container">
+
+      <div class="px-3 text-right">
+        <span data-key="CONNECTED_COUNT"></span>
+        <span id="connected-count2">1</span>
+      </div>
+      <div class="border-top"></div>
+      <div id="event_list" class="page">
+      </div>
+      <div class="border-top"></div>
+
+      <div class="errors">
+        <div id="error_noevent" class="alert alert-danger" style="display: none;" data-key="NO_RUNNING_EVENT">There is no running event.</div>
+        <div id="error_finishevent" class="alert alert-danger" style="display: none;" data-key="EVENT_FINISHED">Event is finished.</div>
+      </div>
+    </main>
+    <footer>© 2015-2024 <a class="weratv" href="https://www.weratv.ch/">www.weratv.ch</a>, CH-3176 Neuenegg. All Rights Reserved.
+      <style>
+        .dropbtn {
+          cursor: pointer;
+          text-decoration: none;
+          color: white;
+        }
+
+        .dropbtn:hover {
+          text-decoration: none;
+          color: white;
+        }
+
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          /*background-color: #f9f9f9;*/
+          
+          background-color: rgb(15, 13, 13);
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          float: right;
+          right: 0;
+        }
+
+        .dropdown-content a {
+          /*color: black;*/
+          color: white;
+          padding: 10px 12px;
+          text-decoration: none;
+          display: block;
+          min-width: 250px;
+        }
+
+        .dropdown-content a:hover {background-color: #1a1717}
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
+      </style>
+      <div style="float:right;" class="dropdown">
+        <a class="dropbtn" href="#">Downloads</a>
+          <div class="dropdown-content">
+            <a href="/qrcode_docx">QR-Code Vorlage de fr it.docx</a>
+            <a href="qrcode_pdf">QR-Code Vorlage de fr it.pdf</a>
+          </div>
+      </div>
+
+      <div style="display:flex; justify-content: end;">
+        <a href="versions.html" data-key="VERSION_HISTORY">Version history</a>
+      </div>
+      <div style="text-align:right;"><img width="180px" src="/scanme.png"/></div>
+
+    </footer>
+  </div>
+  <div class="body-gap1"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <!--<script src="/socket.io.js"></script>-->
+  <script src="/localization.js"></script>
+  <script src="/main.js"></script>
+</body>
+
+</html>

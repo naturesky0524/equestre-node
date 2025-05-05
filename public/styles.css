@@ -1,0 +1,530 @@
+
+@charset "utf-8";
+/* CSS Document */
+
+/*  total theme */
+
+body {
+	background: #000000;
+    display: flex;
+    .body-gap-jumping{
+        display: flex;
+        flex-grow: 1;
+        /* background-image: url("/images/Hintergrund Cross.jpg"); */
+        /* background-position: center; */
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-image: url("/images/Hintergrund Springen.jpg");
+        /* background-position-y: 140px; */
+        background-position-x: left;
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+    .body-gap{
+        display: flex;
+        flex-grow: 1;
+        /* background-image: url("/images/Hintergrund Cross.jpg"); */
+        background-position: center;
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+    .body-gap-cross{
+        display: flex;
+        flex-grow: 1;
+        /* background-image: url("/images/Hintergrund Cross.jpg"); */
+        /* background-position: center; */
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-image: url("/images/Hintergrund Cross.jpg");
+        /* background-position-y: 140px; */
+        background-position-x: right;
+        /* background-position: center; */
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+    .body-gap-dressage{
+        display: flex;
+        flex-grow: 1;
+        /* background-image: url("/images/Hintergrund Cross.jpg"); */
+        /* background-position: center; */
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-image: url("/images/dressage-back.png");
+        /* background-position-y: 140px; */
+        background-position-x: right;
+        /* background-position: center; */
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+    .body-gap1{
+        display: flex;
+        flex-grow: 1;
+        /* background-image: url("/images/Hintergrund Springen.jpg"); */
+        background-position: center;
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+}
+
+.container {
+    position: relative;
+    box-sizing: border-box;
+    /*background: #000000;*/
+    color:#FFFFFF;
+    max-width: 1200px;
+    /* margin:auto; */
+    padding: 0px 20px 0px 20px;
+    margin:0;
+    min-height: 100vh;
+    background-image: url("/images/Hintergrund Haupt und CC-Ranking.jpg");
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    .main-container {
+        min-height: 530px;
+    }
+}
+
+.container-cross {
+    position: relative;
+    box-sizing: border-box;
+    /*background: #000000;*/
+    color:#FFFFFF;
+    max-width: 1200px;
+    /* margin:auto; */
+    padding: 0px 20px 0px 20px;
+    margin:0;
+    min-height: 100vh;
+    .main-container {
+        min-height: 530px;
+    }
+}
+.border-top{
+    /* border: solid 2px #ceb6b6; */
+    border-top: solid 2px #ceb6b6;
+}
+
+.container-jumping {
+    position: relative;
+    box-sizing: border-box;
+    /*background: #000000;*/
+    color:#FFFFFF;
+    max-width: 1200px;
+    /* margin:auto; */
+    padding: 0px 20px 0px 20px;
+    margin:0;
+    min-height: 100vh;
+    .main-container {
+        min-height: 530px;
+    }
+}
+
+.container-dressage {
+    position: relative;
+    box-sizing: border-box;
+    /*background: #000000;*/
+    color:#FFFFFF;
+    max-width: 1200px;
+    /* margin:auto; */
+    padding: 0px 20px 0px 20px;
+    margin:0;
+    min-height: 100vh;
+    .main-container {
+        min-height: 530px;
+    }
+}
+ /*header with logo and language*/
+
+header {
+    height: 100px;
+    padding: 1rem;
+}
+
+table tbody:last-child{
+    border-bottom: 1px solid gray;
+}
+
+div.logo {
+    height: 100%;
+    width: 80%;
+    background: url("images/logo.png") no-repeat left center;
+    display: inline-block;
+    float: left;
+    max-width: 300px;
+    padding-top: 60px;
+    padding-left: 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+div.pagelink {
+    margin: auto;
+    margin-right: 0px;
+}
+
+.pagelink button {
+    width: 150px;
+    padding: 8px 0px;
+}
+
+/*title with Event name & date*/
+
+div.title {
+    display: block;
+    height: 100px;
+    padding: 1rem;
+}
+
+.title div {
+    display: inline-block;
+    /*height: 100%;*/
+}
+
+div.clear {
+    float: left;
+    clear: left;
+}
+
+.title h2 {
+    color:#ffbf80;
+    font-size: 1.5em;
+}
+
+#now_time {
+    color:#ffbf80;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-family: "Arial","Roboto" !important;
+}
+
+.title h4 {
+    color:#ffbf80;
+    display: inline-block;
+    font-size: 1em;
+    vertical-align: sub;
+    padding: 0px 5px;
+}
+
+
+.left-align {
+    display: inline;
+    float: left;
+    margin: auto;
+    /*height: 100%;*/
+}
+
+.right-align {
+    text-align: right;
+    display: inline;
+    float: right;
+    margin: auto;
+    /*height: 100%;*/
+}
+
+/*nav menus with live, startlist & ranking*/
+
+.nav-pills .nav-link {
+    width: 150px;
+    margin-right: 20px;
+    text-align: center;
+    background-color: #808080;
+    cursor: pointer;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #d6251e;
+    cursor: default;
+}
+
+.subtitle h3 {
+    margin: 5px;
+    font-size: 1.2em;
+}
+
+.subtitle {
+    padding: 0px 50px 0px 5px;
+    margin: 0;
+    color: #b4b4b4;
+    background-color: #4d4d4d;
+    display: inline-block;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.subtitle.time-allowed h3.allowed-time-slot {
+    width: 120px;
+}
+
+span.static-splitter {
+    width: 1px;
+    height: 100%;
+    border: 1px solid #b4b4b4;
+}
+
+.subtitle.highlight {
+    background-color: #d6251e;
+    color: white;
+}
+
+.subboard {
+    clear: left;
+    /* padding: 1rem; */
+}
+
+div.errors {
+    margin: 1rem;
+}
+
+footer {
+    text-align: center;
+}
+
+.table {
+    font-weight: 500;
+    table-layout: fixed;
+}
+
+.table thead {
+    background-color: #ffbf80;
+    color: black;
+    font-size: 13px;
+}
+
+.table.highlight thead {
+    background-color: rgba(255, 92, 43, 0.92);
+    color: black;
+}
+
+.table thead th, .table tbody td {
+    vertical-align: middle;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid grey;
+    overflow: hidden;
+}
+
+.table thead th {
+    font-size: 15px;
+}
+
+.table thead td {
+    font-size: 18px;
+}
+
+.table tbody {
+    color: white;
+}
+
+.table.eventboard tbody tr {
+    cursor: pointer;
+}
+
+.eventboard {
+    margin-bottom: 54px;
+}
+.table-scoreboard tr.eventTitle td {
+    background-color: #232323;
+    font-size: x-large;
+}
+
+.table-scoreboard tr:nth-child(even) td {
+    /* background-color: #232323; */
+}
+
+.table-scoreboard tr:nth-child(odd) td {
+    /* background-color: black; */
+}
+
+.col-rank {
+    width: 40px;
+}
+
+.col-nation {
+    width: 50px;
+}
+
+.col-num-lg {
+    width: 80px;
+}
+
+.col-point, .col-time {
+    width: 70px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-weight: bold;
+}
+
+.col-date {
+    width: 230px;
+}
+.col-xls {
+    width: 50px;
+}
+
+.col-time.body span, .col-point.body span {
+    display: inline-block;
+    line-height: 1;
+    margin: 0px;
+}
+
+.col-font-monospace {
+    font-variant-numeric: tabular-nums;
+}
+
+.subheader {
+    background-color: #804610 !important;
+}
+
+.bg-color-macaroni {
+    background-color: #ffbf80 !important;
+}
+
+.text-color-black {
+    color: black !important;
+}
+
+.font-size-medium {
+    font-size: 12px;
+}
+
+.font-size-small {
+    font-size: 11px;
+}
+
+.font-size-mini {
+    font-size: 10px;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.bg-color-pomegrant {
+    background-color: #EA491C !important;
+}
+
+.bg-color-perano {
+    background-color: #b4d1f4 !important;
+}
+
+.bg-color-pale-canary {
+    background-color: #ffff97 !important;
+}
+
+.bg-color-green {
+    background-color: #19c78a !important;  /*009762*/
+}
+
+.bg-color-final {
+    background-color: #f8accc !important;
+}
+
+.color-pomegrant {
+    color: #EA491C;
+}
+
+/* utilities */
+
+.px-02 {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+.point-label { 
+    font-size: 14px;
+}
+
+.col-horse, .col-rider {
+    font-size: 15px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.col-rider span, .col-horse span {
+    display: inline-block;
+    line-height: 1;
+}
+
+.ranking-badge {
+    width: 25%;
+}
+
+.gameinfo-badge {
+    width: 73%;
+    font-size: 14px !important;
+}
+
+.font-13 {
+    font-size: 13px !important;
+}
+
+.font-point-surpassing {
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+.font-light {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#event-title {
+    padding-left: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+td p {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.time-stop {
+    background-color: brown;
+    padding: 5px 3px 0px 5px;
+    vertical-align:middle;
+    text-align: right;
+    float:right;
+    margin-top: -13px;
+}
+.progress-wrapper{
+    padding: 8px 0 8px 0;
+}
+#current_list_back {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 145px;
+    top: 1400px;
+    .current_list_back{
+        background-image: url('images/current_list.jpg');
+        width: 100%;
+        /* max-width: 1200px; */
+        height: 100%;
+        margin: auto;
+    }
+}
+
+.disp-ico {
+    float: left;
+    margin-right: 5px;
+    margin-left: -5px;
+}
+.disp-ico img {
+    width: 25px;
+}
+
+.weratv {
+    text-decoration: none !important;
+    color: white;   
+}
+
+.weratv:hover {
+    color: #d8d8d8;
+}
+
+.run-title {
+    padding-left: 40px;
+}
