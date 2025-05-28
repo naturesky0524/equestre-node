@@ -1188,16 +1188,19 @@ io.on('connection', function(socket) {
     async function processDelete(command) {
         // let event = getSocketEvent(); // get live event
 
-        // if (command.type) {
-        let eventIndex = events.findIndex(e => e.id == (command.eventid + '_' + command.runid + '_' + command.discipline)) || false;
-        // }
-
-        if (eventIndex === -1) {
-            console.error("delete command: failed.");
-            return;
+        if (command.type == 'run') {
+            events = events.filter(e => e.id != (command.eventid + '_' + command.runid + '_' + command.discipline));
+            // let eventIndex = events.findIndex(e => e.id == (command.eventid + '_' + command.runid + '_' + command.discipline)) || false;
+        } else if (command.type == 'event') {
+            events = events.filter(e => !(e.id.startsWith(command.eventid + '_')))
         }
 
-        events.splice(eventIndex, 1);
+        // if (eventIndex === -1) {
+        //     console.error("delete command: failed.");
+        //     return;
+        // }
+
+        // events.splice(eventIndex, 1);
         
         console.log("[emit] socket:events" + JSON.stringify(events));
         

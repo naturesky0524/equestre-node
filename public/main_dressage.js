@@ -1162,9 +1162,7 @@ $(function() {
             }
             if (i >= 5 && (i % 2 === 1 || i % 2 === 0)) {
                 // TODO: point column or time column
-				if(v == 0 && hideRank)
-					v = '';
-				v = `<span>${v}</span>`;
+                v = `<span>${v}</span>`;
             }
 
             if (i >= 5 && (i % 2 === 0)) {
