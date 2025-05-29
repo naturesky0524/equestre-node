@@ -1181,10 +1181,10 @@ $(function () {
             } else {
                 // row[5] = 0;
                 // ranking[6] = r.start_time;
-                if (r.start_time == 0) {
-                    row[6] = '';
-                } else
-                    row[6] = convertSecondsToTime(r.start_time);
+                // if (r.start_time == 0) {
+                //     row[6] = '';
+                // } else
+                //     row[6] = convertSecondsToTime(r.start_time);
             }
             let id = "startlist_" + num;
             addRow(ranking || row, tbody, true, dataClasses, horse, rider, true, false, id);

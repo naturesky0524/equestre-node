@@ -1330,10 +1330,10 @@ $(function () {
 			} else {
 				// ranking[5] = 0;
 				// ranking[6] = r.start_time;
-				if (r.start_time == 0) {
-					ranking[6] = '';
-				} else
-					ranking[6] = convertSecondsToTime(r.start_time);
+				// if (r.start_time == 0) {
+				// 	ranking[6] = '';
+				// } else
+				// 	ranking[6] = convertSecondsToTime(r.start_time);
 				newStartList.push(ranking);
 			}
 		});
