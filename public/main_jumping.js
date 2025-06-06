@@ -270,7 +270,7 @@ $(function () {
 
 	// update horse info
 	socket.on('horses', function (data) {
-		console.log("[on] horses:" + data.length /* + JSON.stringify(data) */);
+		console.log("[on] horses:" + data.length + JSON.stringify(data));
 		horses = {};
 		for (let horse of data) {
 			horses[horse.idx] = horse;
@@ -282,7 +282,7 @@ $(function () {
 
 	// update rider info
 	socket.on('riders', function (data) {
-		console.log("[on] riders:" + data.length /* + JSON.stringify(data) */);
+		console.log("[on] riders:" + data.length + JSON.stringify(data));
 		riders = {};
 		for (let rider of data) {
 			riders[rider.idx] = rider;
