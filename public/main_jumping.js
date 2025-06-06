@@ -1321,6 +1321,7 @@ $(function () {
 			const rider = riders[r.rider_idx];
 			const horse = horses[r.horse_idx];
 			if (!ranking) {
+				console.log(horse)
 				row[0] = '';
 				row[1] = num; // rank
 				row[2] = eventInfo.modeTeamRelay ? getTeamHorses(num) : horse.name;
