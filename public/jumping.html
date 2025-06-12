@@ -18,19 +18,19 @@
 </head>
 
 <body>
-  <div id="current_list_back" style="">
+  <div id="current_list_back hidden" style="">
     <div class="current_list_back"></div>
   </div>
   <div class="body-gap-jumping"></div>
   <div class="container-jumping">
     <header>
       <div class="logo" data-key="UNOFFICIAL">ALL RESULTS ARE UNOFFICIAL</div>
-      
+
       <div class="dropdown right-align">
         <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
           English
         </button> -->
-        
+
         <select id="lang" class="form-control" onchange="lang=this.value; localizeAll(this.value)">
           <option value="en">English</option>
           <option value="de">Deutsch</option>
@@ -90,7 +90,8 @@
               <div id="nav-ccranking" class="nav-link hidden" data-key="CCRANKING">CC Ranking</div>
             </li>
             <li class="nav-item">
-              <div id="nav-team-ranking" class="nav-link" data-key="TEAM_RANKING" style="display: none">Team Ranking</div>
+              <div id="nav-team-ranking" class="nav-link" data-key="TEAM_RANKING" style="display: none">Team Ranking
+              </div>
             </li>
           </ul>
           <div class="dropdown pagelink">
@@ -120,23 +121,23 @@
                 <td id="category"></td>
                 <td data-key="SCHEDULER_NUMBER" style="width: 200px;; text-align: right;">Scheduler Number:</td>
                 <td id="scheduler-number"></td>
-              </tr>  
+              </tr>
               <tr>
                 <td data-key="HEIGHT" style="text-align: right;">Height:</td>
                 <td id="height"></td>
                 <td data-key="DATE" style="text-align: right;">Date:</td>
                 <td id="event-date1"></td>
-              </tr>  
+              </tr>
               <tr>
                 <td data-key="INITIAL_LIST_AMOUNT" style="text-align: right;">Initial list amount:</td>
                 <td id="init-award-list-amount"></td>
                 <td data-key="RUN_START" style="text-align: right;">Time:</td>
                 <td id="event-time"></td>
-              </tr>  
+              </tr>
               <tr>
                 <td data-key="NOTES" style="text-align: right;">Notes:</td>
                 <td colspan="3" id="notes"></td>
-              </tr>  
+              </tr>
             </tbody>
           </table>
         </div>
@@ -163,26 +164,40 @@
           </table>
         </div>
 
-        <div class="subboard" id="current_list">
+        <div class="subboard" id="current_list" style="background: cornflowerblue; border-radius: 4px; margin-bottom: 16px;">
           <div class="d-flex justify-content-between">
             <div class="subtitle highlight">
               <h3 data-key="CURRENT">Current</h3>
             </div>
             <div class="subtitle time-allowed d-flex pr-0">
-              <h3 class="px-2"><span id="allowed_time_label" data-key="TIME_ALLOWED">Time Allowed</span>:</h3><span class="static-splitter"></span>
+              <h3 class="px-2"><span id="allowed_time_label" data-key="TIME_ALLOWED">Time Allowed</span>:</h3><span
+                class="static-splitter"></span>
               <h3 class="allowed-time-slot d-flex m-0 align-items-center">
                 <span id="allowed_time_1" class="color-pomegrant w-50 text-center">-</span>
                 <span id="allowed_time_splitter" class="static-splitter"></span>
                 <span id="allowed_time_2" class="color-pomegrant w-50 text-center">-</span>
               </h3>
-            </div>  
+            </div>
           </div>
-          <table class="table table-scoreboard highlight">
-            <thead id="current_header">
-            </thead>
-            <tbody id="current_body" class="font-weight-bold">
-            </tbody>
-          </table>
+          <h3 id="current_start_number" style="padding-left: 15px;"></h3>
+          <div class="d-flex justify-content-start align-items-center">
+            <div class="col-6">
+              <h3 id="current_start_rider"></h3>
+              <h6 id="current_start_rider_d"></h6>
+            </div>
+            <div class="col-6">
+              <h3 id="current_start_horse"></h3>
+              <h6 id="current_start_horse_d"></h6>
+            </div>
+          </div>
+          <div class="d-flex align-items-right justify-content-end" style="background-color: white; border-radius: 4px;">
+            <table class="table table-scoreboard highlight" style="width: unset; margin-right: 0; margin-bottom: 0;">
+              <thead id="current_header">
+              </thead>
+              <tbody id="current_body" class="font-weight-bold">
+              </tbody>
+            </table>
+          </div>
           <div class="time-stop"></div>
         </div>
 
@@ -201,7 +216,8 @@
         <div class="subboard" id="ranking_list">
           <div class="d-flex justify-content-between" id="ranking_badge">
             <div class="subtitle ranking-badge">
-              <h3><span data-key="RANKING">Rankings</span><span id="ranking_count" class="color-pomegrant ml-2"></span></h3>
+              <h3><span data-key="RANKING">Rankings</span><span id="ranking_count" class="color-pomegrant ml-2"></span>
+              </h3>
             </div>
             <div class="subtitle gameinfo-badge">
               <h3 class="d-flex justify-content-between">
@@ -235,7 +251,8 @@
         <div class="subboard" id="team_ranking_list" style="display: none">
           <div class="d-flex justify-content-between" id="ranking_badge">
             <div class="subtitle ranking-badge">
-              <h3><span data-key="TEAM_RANKING">Rankings</span><span id="ranking_count" class="color-pomegrant ml-2"></span></h3>
+              <h3><span data-key="TEAM_RANKING">Rankings</span><span id="ranking_count"
+                  class="color-pomegrant ml-2"></span></h3>
             </div>
           </div>
           <table class="table table-scoreboard">
@@ -243,7 +260,7 @@
             <tbody id="team_ranking_body"></tbody>
           </table>
         </div>
-        
+
         <div class="subboard" id="start_list">
           <table class="table table-scoreboard">
             <thead id="startlist_header">
@@ -281,11 +298,14 @@
 
       </div>
       <div class="errors">
-        <div id="error_noevent" class="alert alert-danger" style="display: none;" data-key="NO_RUNNING_EVENT">There is no running event.</div>
-        <div id="error_finishevent" class="alert alert-danger" style="display: none;" data-key="EVENT_FINISHED">Event is finished.</div>
+        <div id="error_noevent" class="alert alert-danger" style="display: none;" data-key="NO_RUNNING_EVENT">There is
+          no running event.</div>
+        <div id="error_finishevent" class="alert alert-danger" style="display: none;" data-key="EVENT_FINISHED">Event is
+          finished.</div>
       </div>
     </main>
-    <footer>© 2015-2024 <a class="weratv" href="https://www.weratv.ch/">www.weratv.ch</a>, CH-3176 Neuenegg. All Rights Reserved.
+    <footer>© 2015-2024 <a class="weratv" href="https://www.weratv.ch/">www.weratv.ch</a>, CH-3176 Neuenegg. All Rights
+      Reserved.
   </div>
   <div class="body-gap1"></div>
   <script src="/socket.io/socket.io.js"></script>
