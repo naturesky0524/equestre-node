@@ -1114,7 +1114,7 @@ $(function () {
 	}
 
 	function updateCurrentRow(num, currentRiderData, horse, rider) {
-		$("#current_start_number").html(`${currentRiderData[0]}<span class="ml-4" style="background: #232323 url('/flags/${currentRiderData[4]}.bmp') center no-repeat; background-size: contain">${currentRiderData[4]}</span>`);
+		$("#current_start_number").html(`${currentRiderData[0]}<div class="ml-4" style="width: 60px; background: #232323 url('/flags/${currentRiderData[4]}.bmp') center no-repeat; background-size: contain">$</div>`);
 		riderInfo = eventInfo.modeTeamRelay ? getTeamRiders(currentRiderData[1]) : `<span>${rider.firstName} ${rider.lastName}</span>`;
 		const arr1 = [rider.nation, rider.city, rider.license, rider.club];
 		const filtered1 = arr1.filter(v => v);
