@@ -37,6 +37,26 @@ const dataClasses = {
     timeClass: 'col-time col-font-monospace text-right bg-color-pale-canary text-color-black px-02 body'
 };
 
+const dataClassesForCurrent = {
+	rnkClass: 'col-rank text-center bg-color-macaroni text-color-black px-02 hidden',
+	numClass: 'col-rank text-center bg-white text-color-black px-02 hidden',
+	riderClass: 'w-50 col-rider hidden',
+	horseClass: 'w-50 col-horse hidden',
+	flagClass: 'col-nation px-02 hidden',
+	pointsClass: 'col-point col-font-monospace text-right bg-color-perano text-color-black px-02 body font-24',
+	timeClass: 'col-time col-font-monospace text-right bg-color-pale-canary text-color-black px-02 body font-24'
+};
+
+const headerClassesForCurrent = {
+	rnkClass: 'col-rank text-center px-02 hidden',
+	numClass: 'col-rank text-center px-02 hidden',
+	riderClass: 'w-50 hidden',
+	horseClass: 'w-50 hidden',
+	flagClass: 'col-nation px-0 hidden',
+	pointsClass: 'col-point px-02 text-center font-24',
+	timeClass: 'col-time px-02 text-center font-24'
+};
+
 function localizedValue(key, lang) {
     const pack = localization[lang];
     if (!pack) { return key; }
@@ -1031,6 +1051,8 @@ $(function () {
         }
         $("#current_body").html('');
         addRow(currentRiderData, currentBody, true, dataClasses);
+        updateCurrentRow(realtime.num, currentRiderData, horse, rider);
+        updateCurrentRow(realtime.num, currentRiderData, horse, rider);
         localizeAll(lang);
     }
 
@@ -1065,9 +1087,8 @@ $(function () {
                 }
             }
             currentRider = addRow(currentRiderData, currentBody, true, dataClasses);
+            updateCurrentRow(realtime.num, currentRiderData, horse, rider);
         }
-
-
 
         currentRider.children("td:nth-child(1)").html((realtime.rank === undefined) ? "&nbsp" : realtime.rank + ".");
         currentRider.children("td:nth-child(2)").html(live_num);
@@ -1389,6 +1410,22 @@ $(function () {
         return row;
     };
 
+    function updateCurrentRow(num, currentRiderData, horse, rider) {
+        $("#current_start_number").html(`${currentRiderData[0]}<span class="ml-4">${currentRiderData[4]}</span>`);
+        riderInfo = eventInfo.modeTeamRelay ? getTeamRiders(currentRiderData[1]) : `<span>${rider.firstName} ${rider.lastName}</span>`;
+        const arr1 = [rider.nation, rider.city, rider.license, rider.club];
+        const filtered1 = arr1.filter(v => v);
+        //if (arr.length <= filtered.length + 2) 
+        const additionalRider = `<span class="font-light">${filtered1.join("/")}</span>`;
+        $("#current_start_rider").html(riderInfo);
+        $("#current_start_rider_d").html(additionalRider);
+        horseInfo = eventInfo.modeTeamRelay ? getTeamHorses(currentRiderData[1]) : `<span>${horse.name}</span>`;
+        const arr2 = [horse.passport, horse.owner, horse.father, horse.mother, horse.fatherOfMother, horse.signalementLabel];
+        const filtered2 = arr2.filter(v => v);
+        const additional2 = `<span class="font-light">${filtered2.join("/")}</span>`;
+        $("#current_start_horse").html(horseInfo);
+        $("#current_start_horse_d").html(additional2);
+    }
 
     function updateHeaders(header) {
         const tables = ['ranking', 'seriesranking1', 'seriesranking2', 'team_ranking', 'current', 'finish', 'nextriders', 'startlist'];
