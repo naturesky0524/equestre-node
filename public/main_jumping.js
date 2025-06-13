@@ -33,8 +33,8 @@ const headerClassesForCurrent = {
 	riderClass: 'w-50 hidden',
 	horseClass: 'w-50 hidden',
 	flagClass: 'col-nation px-0 hidden',
-	pointsClass: 'col-point px-02 text-center font-13',
-	timeClass: 'col-time px-02 text-center font-13'
+	pointsClass: 'col-point px-02 text-center font-24',
+	timeClass: 'col-time px-02 text-center font-24'
 };
 
 const subheaderClasses = {
@@ -63,8 +63,8 @@ const dataClassesForCurrent = {
 	riderClass: 'w-50 col-rider hidden',
 	horseClass: 'w-50 col-horse hidden',
 	flagClass: 'col-nation px-02 hidden',
-	pointsClass: 'col-point col-font-monospace text-right bg-color-perano text-color-black px-02 body',
-	timeClass: 'col-time col-font-monospace text-right bg-color-pale-canary text-color-black px-02 body'
+	pointsClass: 'col-point col-font-monospace text-right bg-color-perano text-color-black px-02 body font-24',
+	timeClass: 'col-time col-font-monospace text-right bg-color-pale-canary text-color-black px-02 body font-24'
 };
 
 function localizedValue(key, lang) {
