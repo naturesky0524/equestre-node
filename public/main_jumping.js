@@ -646,14 +646,14 @@ $(function () {
 
 			if (prev_time && t - prev_time < 0) {
 				counting_status = 0;
-				$(".time-stop").show();
+				// $(".time-stop").show();
 				$(".time-stop").html("Countdown");
 			} else if (prev_time && t == prev_time) {
 				if (counting_status == 0) {
-					$(".time-stop").show();
+					// $(".time-stop").show();
 					$(".time-stop").html("Countdown interrupted");
 				} else {
-					$(".time-stop").show();
+					// $(".time-stop").show();
 					$(".time-stop").html("Timing interrupted");
 				}
 
