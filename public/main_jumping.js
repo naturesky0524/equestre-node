@@ -626,6 +626,7 @@ $(function () {
 
 	// get live race info
 	socket.on('realtime', function (data) {
+		$("#current_list").show();
 		console.log('[on] realtime: ' + data)
 		realtime = data;
 		realtime.updateTick = Date.now();
@@ -755,6 +756,7 @@ $(function () {
 
 	// one player finished
 	socket.on('final', function (data) {
+		$("#current_list").hide();
 		console.log("[on] final:" + JSON.stringify(data));
 		isRealtime = false;
 		// find position
@@ -1114,7 +1116,11 @@ $(function () {
 	}
 
 	function updateCurrentRow(num, currentRiderData, horse, rider) {
-		$("#current_start_number").html(`${currentRiderData[0]}<div class="ml-4" style="height: 40px; width: 60px; background: #232323 url('/flags/${currentRiderData[4] ?? 'sui'}.bmp') center no-repeat; background-size: contain"></div>`);
+		if(currentRiderData[0]){
+			$("#current_start_number").html(`${currentRiderData[0]}<div class="ml-4" style="height: 40px; width: 60px; background: #232323 url('/flags/${currentRiderData[4] == '' ? 'sui' : currentRiderData[4]}.bmp') center no-repeat; background-size: contain"></div>`);
+		} else {
+			$("#current_start_number").hide();
+		}
 		riderInfo = eventInfo.modeTeamRelay ? getTeamRiders(currentRiderData[1]) : `<span>${rider.firstName} ${rider.lastName}</span>`;
 		const arr1 = [rider.nation, rider.city, rider.license, rider.club];
 		const filtered1 = arr1.filter(v => v);
