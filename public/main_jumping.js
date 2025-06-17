@@ -1116,8 +1116,7 @@ $(function () {
 	}
 
 	function updateCurrentRow(num, currentRiderData, horse, rider) {
-		console.log(currentRiderData)
-		if(currentRiderData[0].trim() != ""){
+		if(currentRiderData[0] != '<span data-key="NUMBER"></span>'){
 			$("#current_start_number").html(`${currentRiderData[0]}<div class="ml-4" style="height: 40px; width: 60px; background: #232323 url('/flags/${currentRiderData[4] == '' ? 'sui' : currentRiderData[4]}.bmp') center no-repeat; background-size: contain"></div>`);
 		} else {
 			$("#current_start_number").hide();
