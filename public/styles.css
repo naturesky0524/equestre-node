@@ -489,7 +489,8 @@ td p {
     padding: 5px 3px 0px 5px;
     vertical-align:middle;
     text-align: right;
-    float:right;
+    width: fit-content;
+    /* float:right; */
     margin-top: -13px;
 }
 .progress-wrapper{
