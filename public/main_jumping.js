@@ -648,13 +648,13 @@ $(function () {
 			if (prev_time && t - prev_time < 0) {
 				counting_status = 0;
 				// $(".time-stop").show();
-				// $(".time-stop").html("Countdown");
-					$(".time-stop").html("Timing interrupted");
+				$(".time-stop").html("Countdown");
+					// $(".time-stop").html("Timing interrupted");
 			} else if (prev_time && t == prev_time) {
 				if (counting_status == 0) {
 					// $(".time-stop").show();
-					$(".time-stop").html("Timing interrupted");
-					// $(".time-stop").html("Countdown interrupted");
+					// $(".time-stop").html("Timing interrupted");
+					$(".time-stop").html("Countdown interrupted");
 				} else {
 					// $(".time-stop").show();
 					$(".time-stop").html("Timing interrupted");
