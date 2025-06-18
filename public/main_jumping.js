@@ -664,7 +664,7 @@ $(function () {
 				setTimeout(() => {
 						$(".time-stop").hide(2000);
 				}, 3000);*/
-				$(".time-stop").hide();
+				// $(".time-stop").hide();
 				counting_status = 1;
 			}
 
@@ -743,7 +743,7 @@ $(function () {
 			updateStartList();
 		} else {
 
-			//$(".time-stop").show();
+			$(".time-stop").show();
 			let started;
 			if (realtime.lane === 1) {
 				started = realtime.score.lane1.time;
