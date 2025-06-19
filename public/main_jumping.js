@@ -641,7 +641,7 @@ $(function () {
 			} else {
 				curTime = realtime.score.lane2.time;
 			}
-			updateRuntimeTimer(realtime.lane, curTime);
+			// updateRuntimeTimer(realtime.lane, curTime);
 
 			let t = Math.abs(parseInt(curTime));
 
@@ -1120,20 +1120,21 @@ $(function () {
 
 	function updateCurrentRow(num, currentRiderData, horse, rider) {
 		console.log(currentRiderData)
-		if (currentRiderData[0] != '<span data-key="NUMBER"></span>') {
-			$("#current_start_number").html(`${currentRiderData[0]}<div class="ml-4" style="height: 40px; width: 60px; background: #232323 url('/flags/${currentRiderData[4] == '' ? 'sui' : currentRiderData[4]}.bmp') center no-repeat; background-size: contain"></div>`);
+		if (currentRiderData[1] != '<span data-key="NUMBER"></span>') {
+			$("#current_start_number").html(`${currentRiderData[1]}<div class="ml-4" style="height: 40px; width: 60px; background: #232323 url('/flags/${currentRiderData[4] == '' ? 'sui' : currentRiderData[4]}.bmp') center no-repeat; background-size: contain"></div>`);
 		} else {
 			$("#current_start_number").hide();
 		}
-		riderInfo = eventInfo.modeTeamRelay ? getTeamRiders(currentRiderData[1]) : `<span>${rider.firstName} ${rider.lastName}</span>`;
-		const arr1 = [rider.nation, rider.city, rider.license, rider.club];
+		$('#current_rank').html(`${currentRiderData[0]}`)
+		riderInfo = eventInfo.modeTeamRelay ? getTeamRiders(currentRiderData[0]) : `<span>${rider?.firstName} ${rider?.lastName}</span>`;
+		const arr1 = [rider?.nation, rider?.city, rider?.license, rider?.club];
 		const filtered1 = arr1.filter(v => v);
 		//if (arr.length <= filtered.length + 2) 
 		const additionalRider = `<span class="font-light">${filtered1.join("/")}</span>`;
 		$("#current_start_rider").html(riderInfo);
 		$("#current_start_rider_d").html(additionalRider);
-		horseInfo = eventInfo.modeTeamRelay ? getTeamHorses(currentRiderData[1]) : `<span>${horse.name}</span>`;
-		const arr2 = [horse.passport, horse.owner, horse.father, horse.mother, horse.fatherOfMother, horse.signalementLabel];
+		horseInfo = eventInfo.modeTeamRelay ? getTeamHorses(currentRiderData[1]) : `<span>${horse?.name}</span>`;
+		const arr2 = [horse?.passport, horse?.owner, horse?.father, horse?.mother, horse?.fatherOfMother, horse?.signalementLabel];
 		const filtered2 = arr2.filter(v => v);
 		const additional2 = `<span class="font-light">${filtered2.join("/")}</span>`;
 		$("#current_start_horse").html(horseInfo);
@@ -1197,6 +1198,7 @@ $(function () {
 		const score = realtime.lane === 2 ? realtime.score.lane2 : realtime.score.lane1;
 
 		currentRider.children("td:nth-child(1)").html((realtime.rank === undefined) ? "&nbsp" : realtime.rank + ".");
+		$('#current_rank').html((realtime.rank === undefined) ? "&nbsp" : realtime.rank + ".");
 		currentRider.children("td:nth-child(2)").html(realtime.num);
 		currentRider.children(`td:nth-child(${5 + twoPhaseGame * (realtime.lane - 1) * 2 + (offset - 1) * 2 + 1})`).html(formatPoint(score, false));
 		if (fullupdate === true) {
@@ -1296,7 +1298,7 @@ $(function () {
 				const horseIdx = competitor.horse_idx;
 				horses_html += "<p>" + mem_num + ". " + (horses[horseIdx].name || '') + "</p>";
 			} else {
-				horses_html += "<p>" + mem_num + ". </p>";
+				horses_html += "<p>" + '&nbsp;' + ". </p>";
 			}
 		}
 
@@ -1536,7 +1538,6 @@ $(function () {
 	}
 
 	function addRow(rowData, container, isData, classes, horse, rider, swapNumAndRank, hideRank) {
-
 		if (!rowData) { return; }
 		const row = $("<tr class=''></tr>");
 		const cols = [];
