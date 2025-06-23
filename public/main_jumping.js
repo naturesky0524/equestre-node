@@ -1375,9 +1375,9 @@ $(function () {
 				console.log(horse)
 				row[0] = '';
 				row[1] = num; // rank
-				row[2] = eventInfo.modeTeamRelay ? getTeamHorses(num) : horse.name;
-				row[3] = eventInfo.modeTeamRelay ? getTeamRiders(num) : `${rider.firstName} ${rider.lastName}`;
-				row[4] = eventInfo.modeTeamRelay ? getTeamNations(num) : rider.nation || country;
+				row[2] = eventInfo.modeTeamRelay ? getTeamHorses(num) : horse?.name;
+				row[3] = eventInfo.modeTeamRelay ? getTeamRiders(num) : `${rider?.firstName} ${rider?.lastName}`;
+				row[4] = eventInfo.modeTeamRelay ? getTeamNations(num) : rider?.nation || country;
 				newStartList.push(row);
 			} else {
 				// ranking[5] = 0;
