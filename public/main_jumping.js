@@ -1131,14 +1131,14 @@ $(function () {
 		const filtered1 = arr1.filter(v => v);
 		//if (arr.length <= filtered.length + 2) 
 		const additionalRider = `<span class="font-light">${filtered1.join("/")}</span>`;
-		$("#current_start_rider").html(riderInfo);
-		$("#current_start_rider_d").html(additionalRider);
+		$("#current_start_rider").html(riderInfo || '');
+		$("#current_start_rider_d").html(additionalRider || '');
 		horseInfo = eventInfo.modeTeamRelay ? getTeamHorses(currentRiderData[0]) : `<span>${horse?.name}</span>`;
 		const arr2 = [horse?.passport, horse?.owner, horse?.father, horse?.mother, horse?.fatherOfMother, horse?.signalementLabel];
 		const filtered2 = arr2.filter(v => v);
 		const additional2 = `<span class="font-light">${filtered2.join("/")}</span>`;
-		$("#current_start_horse").html(horseInfo);
-		$("#current_start_horse_d").html(additional2);
+		$("#current_start_horse").html(horseInfo || '');
+		$("#current_start_horse_d").html(additional2 || '');
 	}
 
 	function setRuntimeList(fullupdate) {
