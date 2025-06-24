@@ -759,7 +759,7 @@ $(function () {
 
 	// one player finished
 	socket.on('final', function (data) {
-		$("#current_list").hide();
+		// $("#current_list").hide();
 		console.log("[on] final:" + JSON.stringify(data));
 		isRealtime = false;
 		// find position
