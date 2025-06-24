@@ -1125,11 +1125,11 @@ $(function () {
 		} else {
 			$("#current_start_number").hide();
 		}
-		$('#current_rank').html(`${currentRiderData[1]}`)
+		$('#current_rank').html(`<span data-key="RANK"></span> ${currentRiderData[1]}`)
 		riderInfo = eventInfo.modeTeamRelay ? getTeamRiders(currentRiderData[1]) : `<span>${rider?.firstName} ${rider?.lastName}</span>`;
 		const arr1 = [rider?.nation, rider?.city, rider?.license, rider?.club];
 		const filtered1 = arr1.filter(v => v);
-		//if (arr.length <= filtered.length + 2) 
+		//if (arr.length <= filtered.length + 2)
 		const additionalRider = `<span class="font-light">${filtered1.join("/")}</span>`;
 		$("#current_start_rider").html(riderInfo || '');
 		$("#current_start_rider_d").html(additionalRider || '');
