@@ -627,7 +627,7 @@ $(function () {
 	// get live race info
 	socket.on('realtime', function (data) {
 		// $("#current_list").show();
-		console.log('[on] realtime: ' + data)
+		console.log('[on] realtime: ' + JSON.stringify(data))
 		realtime = data;
 		realtime.updateTick = Date.now();
 		isRealtime = true;
