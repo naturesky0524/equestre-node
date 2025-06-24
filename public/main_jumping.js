@@ -314,7 +314,7 @@ $(function () {
 
 	// update team info
 	socket.on('teams', function (data) {
-		console.log("[on] teams:" + data /* + JSON.stringify(data) */);
+		console.log("[on] teams:" + JSON.stringify(data));
 
 		teams = data;
 	});
