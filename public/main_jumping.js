@@ -1320,7 +1320,7 @@ $(function () {
 
 				rider_html += "<p>" + (rider ? `${rider.firstName} ${rider.lastName}` : '') + "</p>";
 			} else {
-				rider_html += "<p>&nbsp;</p>";
+				// rider_html += "<p>&nbsp;</p>";
 			}
 		}
 
