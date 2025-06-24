@@ -1010,8 +1010,8 @@ $(function () {
 				const data = Array(rankings[0].length).fill('');
 				data[0] = num;
 				data[1] = num;
-				data[2] = eventInfo.modeTeamRelay ? getTeamHorses(num) : `${horse.name}`;
-				data[3] = eventInfo.modeTeamRelay ? getTeamRiders(num) : `${rider.firstName} ${rider.lastName}`;
+				data[2] = eventInfo.modeTeamRelay ? getTeamHorses(num) : `${horse?.name}`;
+				data[3] = eventInfo.modeTeamRelay ? getTeamRiders(num) : `${rider?.firstName} ${rider?.lastName}`;
 				table[j] = data;
 			}
 			j += 1;
