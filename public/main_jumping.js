@@ -28,11 +28,11 @@ const headerClasses = {
 };
 
 const headerClassesForCurrent = {
-	rnkClass: 'col-rank text-center px-02',
-	numClass: 'col-rank text-center px-02',
-	riderClass: 'w-50',
-	horseClass: 'w-50',
-	flagClass: 'col-nation px-0',
+	rnkClass: 'col-rank text-center px-02 hidden',
+	numClass: 'col-rank text-center px-02 hidden',
+	riderClass: 'w-50 hidden',
+	horseClass: 'w-50 hidden',
+	flagClass: 'col-nation px-0 hidden',
 	pointsClass: 'col-point px-02 text-center font-24',
 	timeClass: 'col-time px-02 text-center font-24'
 };
@@ -58,11 +58,11 @@ const dataClasses = {
 };
 
 const dataClassesForCurrent = {
-	rnkClass: 'col-rank text-center bg-color-macaroni text-color-black px-02',
-	numClass: 'col-rank text-center bg-white text-color-black px-02',
-	riderClass: 'w-50 col-rider',
-	horseClass: 'w-50 col-horse',
-	flagClass: 'col-nation px-02',
+	rnkClass: 'col-rank text-center bg-color-macaroni text-color-black px-02 hidden',
+	numClass: 'col-rank text-center bg-white text-color-black px-02 hidden',
+	riderClass: 'w-50 col-rider hidden',
+	horseClass: 'w-50 col-horse hidden',
+	flagClass: 'col-nation px-02 hidden',
 	pointsClass: 'col-point col-font-monospace text-right bg-color-perano text-color-black px-02 body font-24',
 	timeClass: 'col-time col-font-monospace text-right bg-color-pale-canary text-color-black px-02 body font-24'
 };
